@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0910a17b6ff54a34ab24c1a257cffae8" Name="Diagram1">
+        <EntityTypeShape EntityType="DBSurveySystemModel.TBL_ADMIN" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSurveySystemModel.tbl_category" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSurveySystemModel.TBL_QUESTIONS" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSurveySystemModel.TBL_SETSURVEY" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSurveySystemModel.TBL_STUDENT" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="DBSurveySystemModel.FK__tbl_categ__cat_f__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSurveySystemModel.FK__TBL_QUEST__q_fk___6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSurveySystemModel.FK__TBL_SETSU__SURVE__1DE57479" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

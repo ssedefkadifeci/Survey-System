@@ -1,0 +1,208 @@
+﻿@model SurveySystem.Models.TBL_STUDENT
+
+@{
+    ViewBag.Title = "StudentRegister";
+}
+
+@*<h2>StudentRegister</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>TBL_STUDENT</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.S_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.S_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.S_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.S_PASSWORD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.S_PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.S_PASSWORD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.S_IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.S_IMAGE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.S_IMAGE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+
+@{
+    Layout = null;
+}
+
+
+<style>
+    .btn btn-primary {
+        background-color: cadetblue;
+        color: white;
+        padding: 14px 16px;
+        margin: 0 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+        .btn btn-primary:hover {
+            opacity: 1;
+        }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/BootstrapFiles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/BootstrapFiles/css/sb-admin-2.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error! </strong>  @ViewBag.msg
+        </div>
+    }
+
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register Your Information!</h1>
+                            </div>
+                            @using (Html.BeginForm("StudentRegister", "Home" , FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        @*<input type="name" class="form-control" id="name" placeholder="Enter name" name="name">*@
+                                        @Html.TextBoxFor(x => x.S_NAME, htmlAttributes: new { @class = "form-control" })
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        @Html.TextBoxFor(x => x.S_EMAIL, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-3 col-md-12">
+                                            <a href="/Home/" class="btn btn-primary btn-user btn-block">Register Now!</a>
+                                        </div>
+                                    </div>
+
+                                    @*<input type="submit" value="Register Now!" class="btn btn-primary btn-user btn-block" />*@
+                                </form>
+                            }
+                            <div>
+                                @Html.ActionLink("Go to Home Page", "Index")
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<form class="user">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.S_NAME, htmlAttributes: new { @class = "control-label row-md-1" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.S_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.S_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.S_EMAIL, htmlAttributes: new { @class = "control-label row-md-1" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.S_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.S_EMAIL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-12">
+                    <input type="submit" value="Register Your Infrmation" class="btn btn-primary btn-user btn-block" />
+                </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            </div>*@
+
+
+
+
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/BootstrapFiles/vendor/jquery/jquery.min.js"></script>
+        <script src="~/BootstrapFiles/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="~/BootstrapFiles/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="~/BootstrapFiles/js/sb-admin-2.min.js"></script>
+
+
+</body>
+
+</html>
+
+
+
